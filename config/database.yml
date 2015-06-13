@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+  username: hashpay
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+
+development:
+  database: db_development
+  <<: *defaults
+
+test:
+  database: db_test
+  <<: *defaults
+
+production:
+  database: db_production
+  <<: *defaults
