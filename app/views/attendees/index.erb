@@ -1,0 +1,27 @@
+<form action="/create" method="post" xmlns="http://www.w3.org/1999/html">
+   <div class="form-group">
+     <label for="Name">Your Name (for billing purposes)</label>
+     <input class="form-control" type="text"  id="name" name="name" placeholder="Enter your name">
+   </div>
+   <div class="form-group">
+     <label for="hashName">Hash Name</label>
+     <input class="form-control" type="text" name="hashName" id="hashName" placeholder="Enter your Hash name">
+   </div>
+  <div class="form-group">
+    <label for="kennel">Home Kennel</label>
+    <input class="form-control" type="text" name="kennel" id="kennel" placeholder="Enter your home kennel">
+  </div>
+ <script
+   src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button"
+   data-key="<%= @public_key %>"
+   data-name="Hashpay"
+   data-description="<%= @event_description %>"
+   data-image=<%= asset_path 'hhhlogo.png' %>
+   data-amount="<%= @event_cost %>">
+  </script>
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+</form>
+
+
+
+
