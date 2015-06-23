@@ -7,15 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: "shared/flash_messages", flash: flash %>
 <div class="container">
-  <div class="center-block">
-    <%= image_tag('/images/hhhlogo.png', { alt: 'P3H3 Inaugural run Rego', class: 'img-responsive' }) %>
-  </div>
-  <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
-    <div class="panel-heading"></div>
-    <%= yield %>
-    <div class="panel-footer"></div>
+    <%= image_tag('/images/p3h3_temp_logo.png', {alt: 'P3H3 Inaugural run Rego', class: 'img-responsive'}) %>
+  <div class="panel-group">
+    <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+      <div class="panel-heading">
+        <%= render partial: "shared/flash_messages", flash: flash %>
+      </div>
+      <div class="panel-body">
+        <%= yield %>
+      </div>
+      <div class="panel-footer"></div>
+    </div>
   </div>
 </div>
 </body>

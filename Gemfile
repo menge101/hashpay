@@ -34,3 +34,14 @@ gem 'spring',        group: :development
 
 gem 'ruby-debug-ide', group: [:development, :test], require: false
 
+group :test do
+ gem 'capybara'
+ gem 'poltergeist'
+ gem 'selenium-webdriver'
+ gem 'cucumber'
+ gem 'rspec'
+ gem 'cucumber-rails', :require => false
+ gem 'database_cleaner'
+ gem 'site_prism'
+end
+

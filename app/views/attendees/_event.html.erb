@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6" id="eventData">
+    <dl class="dl-horizontal">
+      <dt id="eventWhat">What?</dt>
+      <dd id="eventName"><%= event[:name] %></dd>
+      <dd id="eventDescription"><%= event[:description] %></dd>
+      <dt id="eventWhen">When?</dt>
+      <dd id="eventDate"><%= event[:date].strftime('%A, %b %d %I:%M:%S %p') %></dd>
+      <dt id="eventWhere">Where?</dt>
+      <dd><%= event[:location] %></dd>
+      <dt id="eventHow">How Much?</dt>
+      <dd id="eventCost"><%= "$#{event[:cost].to_i}.00/person" %></dd>
+    </dl>
+  </div>
+  <div class="col-md-6" id="eventMap">
+    Put a map here...
+  </div>
+</div>
+

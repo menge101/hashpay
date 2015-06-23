@@ -1,10 +1,10 @@
 body {
     padding-top: 90px;
-    background-image: url("/app/assets/images/bg1.png")
-    background-color: #cccccc;
+    background-color: #ffffff;
 }
 
 .panel-default > .panel-heading {
+    backgroun-image: none;
     background-color: #0958A7;
 }
 
@@ -13,6 +13,10 @@ body {
 }
 
 .panel-body {
-    background-color: #F1FEE4;
+    background-color: #ccddcc;
+}
+
+.row {
+    padding-top: 2px;
 }
 

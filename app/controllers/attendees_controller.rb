@@ -1,10 +1,10 @@
 class AttendeesController < ApplicationController
   def index
-    @event_name = 'P3H3 Inaug'
-    @event_cost = 5.00
-    @description = "#{@event_name} payment"
-    @public_key = Rails.application.secrets.stripe_publishable_key
-    puts @public_key
+    @event = { name: 'P3H3 Inaug',
+               cost: 5.00,
+               date: Time.zone.parse('2015-08-02 14:00:00'),
+               description: 'The first run of the Pittsburgh area Family hash',
+               location: 'Sanders St & Richmond Ave, Pittsburgh pa' }
   end
 
   def create

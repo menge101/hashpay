@@ -8,7 +8,7 @@ development:
   database: db_development
   <<: *defaults
 
-test:
+test: &test
   database: db_test
   <<: *defaults
 
@@ -16,3 +16,5 @@ production:
   database: db_production
   password: <%= ENV['POSTGRESQL_PASSWORD'] %>
   <<: *defaults
+cucumber:
+  <<: *test
