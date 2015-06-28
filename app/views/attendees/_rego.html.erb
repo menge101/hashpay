@@ -54,11 +54,13 @@
   <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
   <script>
     var $attendeeCount = 1;
+    // TODO: move to event model, pass in attendee count
     function totalCost(cost) {
       return $attendeeCount * cost;
     }
 
     function paymentDescription() {
+      // TODO: Move this to server side in the event model
       return "<%= event[:name] %> for " + $attendeeCount.toString() + " people."
     }
     $(document).ready(function () {
@@ -84,7 +86,7 @@
     });
 
     var handler = StripeCheckout.configure({
-      key: '<%= public_key %>',
+      key: '<%= Rails.application.secrets.stripe_publishable_key %>',
       image: '<%= asset_path 'hhhlogo.png' %>',
       token: function(token) {
       }

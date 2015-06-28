@@ -12,8 +12,12 @@
       <dd id="eventCost"><%= "$#{event[:cost].to_i}.00/person" %></dd>
     </dl>
   </div>
-  <div class="col-md-6" id="eventMap">
-    Put a map here...
+  <div class="col-md-6" id="map-canvas">
+    <div class='embed-container'>
+      <iframe width='200' height='200' frameborder='0' style='border:0' allowfullscreen='true'
+              src='https://www.google.com/maps/embed/v1/place?q=<%= CGI.escape(event[:location]) %>&key=<%= Rails.application.secrets.google_maps_public_api_key %>'>
+      </iframe>
+    </div>
   </div>
 </div>
 
