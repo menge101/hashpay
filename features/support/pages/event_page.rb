@@ -1,3 +1,11 @@
+class StripeIframe < SitePrism::Page
+  element :email, 'input#email'
+  element :credit_card, 'input#credit_card'
+  element :expiration, 'input#cc-exp'
+  element :cvc, 'input#cc-csc'
+  element :submit, 'button#submitButton'
+end
+
 class EventInfoSection < SitePrism::Section
   element :event_what, 'dt#eventWhat'
   element :event_when, 'dt#eventWhen'
@@ -20,14 +28,15 @@ class RegistrationSection < SitePrism::Section
   element :credit_secure, 'a#credit_secure'
 end
 
-class MapSection < SitePrism::Section
-  element :map, 'iframe#map'
+class MapIframe < SitePrism::Page
+
 end
 
 class EventPage < SitePrism::Page
   set_url '/'
   section :event_info, EventInfoSection, 'div#event'
-  section :map, MapSection, 'div#map-canvas'
+  iframe :map_iframe, MapIframe, '#map'
   section :registration, RegistrationSection, 'div#rego'
+  iframe :stripe_iframe, StripeIframe, '.stripe_checkout_app'
 end
 
