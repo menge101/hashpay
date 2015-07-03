@@ -17,6 +17,12 @@ Feature:
     And I set kennel to 'pgh-h3'
     When I click the 'pay with stripe' button
     Then the stripe payment overlay is displayed
+    When I enter 'test@test.com' in the email field
+    And I enter a valid visa card
+    And I enter a expiration date in the future
+    And I enter a cvc code of '123'
+    And I click the stripe pay button
+
 
 
 

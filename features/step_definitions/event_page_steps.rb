@@ -1,6 +1,6 @@
 When /^I click the '(.+)' button$/ do |button|
   button_map = { 'pay with stripe' => :stripe_button}
-  @event.registration.send(button_map[button])
+  @event.registration.send(button_map[button]).click
 end
 
 
@@ -29,6 +29,7 @@ Then /^the event page is using https$/ do
 end
 
 Then /^the stripe payment overlay is (not )?displayed$/ do |negation|
+  @event.wait_for_stripe_iframe
   expect(@event.has_stripe_iframe?).to (negation.blank? ? be_truthy : be_falsey)
 end
 

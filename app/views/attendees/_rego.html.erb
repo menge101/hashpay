@@ -1,18 +1,8 @@
-<form id="regoForm" action="/create" method="post" onsubmit="return validateForm(this)" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<form id="regoForm" action="/create" method="post" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <div class="col-md-2"></div>
-  <!-- Removing billing information, not needed at the moment
-  <div class="col-md-4" id="billingInfo">
-    <h3>Billing Info:</h3>
-
-    <div class="form-inline">
-      <div class="form-group">
-        <label id="billingName" for="billingNameName">Real Name</label>
-        <input class="form-control" type="text" id="realName" name="realName" placeholder="Enter cardholder's name">
-      </div>
-    </div>
-  </div> -->
   <div class="col-md-8 col-md-offset-2" id="attendees">
     <h3>Attendees:</h3>
+
     <div class="controls">
       <div class="form-inline">
         <div class="row">
@@ -33,14 +23,15 @@
           <div class="form-group">
             <input class="form-control" type="text" name="names[]" placeholder="Name">
             <input class="form-control" type="text" name="kennel[]" placeholder="Kennel">
-              <button class="btn btn-danger btn-rmv" type="button">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
+            <button class="btn btn-danger btn-rmv" type="button">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
             </span>
           </div>
         </div>
       </div>
-      <a href="#" data-toggle="tooltip" id="new_tooltip" title="Enter your name(s) as 'Just <name>' and leave the kennel field blank">New to the group?</a>
+      <a href="#" data-toggle="tooltip" id="new_tooltip" title="Enter your name(s) as 'Just <name>' and leave the kennel field blank">New
+        to the group?</a>
     </div>
   </div>
   <div class="col-md-2 col-md-offset-5">
@@ -49,67 +40,67 @@
       <h6><a id="credit_secure" href="https://stripe.com/help/security">Is my credit card information secure?</a></h6>
     </div>
   </div>
-
-  <script src="https://checkout.stripe.com/checkout.js"></script>
   <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-  <script>
-    var $attendeeCount = 1;
-    // TODO: move to event model, pass in attendee count
-    function totalCost(cost) {
-      return $attendeeCount * cost;
-    }
-
-    function paymentDescription() {
-      // TODO: Move this to server side in the event model
-      var stringEnd = " person.";
-      if ($attendeeCount > 1) {
-        stringEnd = " people.";
-      }
-
-      return "<%= event[:name] %> for " + $attendeeCount.toString() + stringEnd;
-    }
-    $(document).ready(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-
-      $('#regoForm')
-        // Add button click handler
-          .on('click', '.btn-add', function() {
-            var $template = $('#attendeeTemplate'),
-                $clone = $template
-                    .clone()
-                    .removeClass('hide')
-                    .removeAttr('id')
-                    .insertBefore($template);
-            $attendeeCount++;
-          })
-          // Remove button click handler
-          .on('click', '.btn-rmv', function() {
-            var $row  = $(this).parents('.row');
-            $attendeeCount--;
-            $row.remove();
-          });
-    });
-
-    var handler = StripeCheckout.configure({
-      key: '<%= Rails.application.secrets.stripe_publishable_key %>',
-      image: '<%= asset_path 'hhhlogo.png' %>',
-      token: function(token) {
-      }
-    });
-
-    $('#formSubmitButton').on('click', function(e) {
-      // Open Checkout with further options
-      handler.open({
-        name: 'Hashpay',
-        description: paymentDescription(),
-        amount: totalCost(<%= event[:cost] %>)
-      });
-      e.preventDefault();
-    });
-
-    // Close Checkout on page navigation
-    $(window).on('popstate', function() {
-      handler.close();
-    });
-  </script>
 </form>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+  var $attendeeCount = 1;
+  // TODO: move to event model, pass in attendee count
+  function totalCost(cost) {
+    return $attendeeCount * cost;
+  }
+
+  function paymentDescription() {
+    // TODO: Move this to server side in the event model
+    var stringEnd = " person.";
+    if ($attendeeCount > 1) {
+      stringEnd = " people.";
+    }
+
+    return "<%= event[:name] %> for " + $attendeeCount.toString() + stringEnd;
+  }
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('#regoForm')
+      // Add button click handler
+        .on('click', '.btn-add', function () {
+          var $template = $('#attendeeTemplate'),
+              $clone = $template
+                  .clone()
+                  .removeClass('hide')
+                  .removeAttr('id')
+                  .insertBefore($template);
+          $attendeeCount++;
+        })
+      // Remove button click handler
+        .on('click', '.btn-rmv', function () {
+          var $row = $(this).parents('.row');
+          $attendeeCount--;
+          $row.remove();
+        });
+  });
+
+  var handler = StripeCheckout.configure({
+    key: '<%= Rails.application.secrets.stripe_publishable_key %>',
+    image: '<%= asset_path 'hhhlogo.png' %>',
+    token: function (token) {
+    }
+  });
+
+  $('#formSubmitButton').on('click', function (e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'Hashpay',
+      description: paymentDescription(),
+      amount: totalCost(<%= event[:cost] %>)
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function () {
+    handler.close();
+  });
+</script>

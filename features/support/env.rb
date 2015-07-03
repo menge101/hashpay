@@ -65,16 +65,17 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 #usage: firefox=true bundle exec cucumber features/test.feature
 
 
-if ENV['chrome']
-  Capybara.default_driver = :chrome
-  Capybara.register_driver :chrome do |app|
+if ENV['phantomjs']
+  Capybara.default_driver = :poltergeist
+  Capybara.register_driver :poltergeist do |app|
     options = {
         :js_errors => false,
         :timeout => 360,
         :debug => false,
+        :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
         :inspector => false,
     }
-    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+    Capybara::Poltergeist::Driver.new(app, options)
   end
 elsif ENV['firefox']
   Capybara.default_driver = :firefox
@@ -109,17 +110,16 @@ elsif ENV['opera']
     }
     Capybara::Selenium::Driver.new(app, :browser => :opera)
   end
-elsif
-Capybara.default_driver = :poltergeist
-  Capybara.register_driver :poltergeist do |app|
+else
+  Capybara.default_driver = :chrome
+  Capybara.register_driver :chrome do |app|
     options = {
         :js_errors => false,
         :timeout => 360,
         :debug => false,
-        :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
         :inspector => false,
     }
-    Capybara::Poltergeist::Driver.new(app, options)
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
 end
 
