@@ -22,6 +22,7 @@ Feature:
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
+    And I sleep for 3600 seconds
 
 
 

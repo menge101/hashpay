@@ -24,7 +24,7 @@ class RegistrationSection < SitePrism::Section
   element :add_button, 'button#add_button'
   element :add_tooltip, 'a#add_tooltip'
   element :new_tooltip, 'a#new_tooltip'
-  element :stripe_button, 'input#formSubmitButton'
+  element :stripe_button, 'button.stripe-button-el'
   element :credit_secure, 'a#credit_secure'
 end
 

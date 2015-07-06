@@ -17,14 +17,11 @@ ActiveRecord::Schema.define(version: 20150614011446) do
   enable_extension "plpgsql"
 
   create_table "attendees", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "hash_name"
+    t.string   "hash_name",   null: false
     t.string   "home_kennel"
-    t.string   "email",        null: false
-    t.string   "stripe_token", null: false
-    t.boolean  "pay_status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "email",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - db_development@localhost" uuid="f093cd4a-c516-4029-98a8-0f3e84f3d2d6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>hashpay</user-name>
+      <schema-pattern>db_development.pg_catalog db_development.public</schema-pattern>
+      <default-schemas>db_development.pg_catalog db_development.public</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - db_test@localhost" uuid="927ad6ad-10e5-43c2-ae22-edb076b178fb" />
+  </component>
+</project>

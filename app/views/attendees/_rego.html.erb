@@ -36,7 +36,15 @@
   </div>
   <div class="col-md-2 col-md-offset-5">
     <div class="center-block">
-      <input id="formSubmitButton" class="btn btn-default btn-primary" type="submit" value="Pay with Stripe"><br>
+      <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+      data-image="<%= asset_path 'hhhlogo.png' %>"
+      data-name="Hashpay"
+      data-description="Payment for <%= event[:name] %>"
+      data-amount="<%= event[:cost] * 100 %>"
+      data-panel-label="Pay {{amount}} per person">
+      </script>
       <h6><a id="credit_secure" href="https://stripe.com/help/security">Is my credit card information secure?</a></h6>
     </div>
   </div>
@@ -46,20 +54,7 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script>
   var $attendeeCount = 1;
-  // TODO: move to event model, pass in attendee count
-  function totalCost(cost) {
-    return $attendeeCount * cost;
-  }
 
-  function paymentDescription() {
-    // TODO: Move this to server side in the event model
-    var stringEnd = " person.";
-    if ($attendeeCount > 1) {
-      stringEnd = " people.";
-    }
-
-    return "<%= event[:name] %> for " + $attendeeCount.toString() + stringEnd;
-  }
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -80,27 +75,5 @@
           $attendeeCount--;
           $row.remove();
         });
-  });
-
-  var handler = StripeCheckout.configure({
-    key: '<%= Rails.application.secrets.stripe_publishable_key %>',
-    image: '<%= asset_path 'hhhlogo.png' %>',
-    token: function (token) {
-    }
-  });
-
-  $('#formSubmitButton').on('click', function (e) {
-    // Open Checkout with further options
-    handler.open({
-      name: 'Hashpay',
-      description: paymentDescription(),
-      amount: totalCost(<%= event[:cost] %>)
-    });
-    e.preventDefault();
-  });
-
-  // Close Checkout on page navigation
-  $(window).on('popstate', function () {
-    handler.close();
   });
 </script>

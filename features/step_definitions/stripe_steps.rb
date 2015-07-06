@@ -12,7 +12,7 @@ end
 
 When /^I enter a expiration date in the future$/ do
   within_frame 'stripe_checkout_app' do
-    page.driver.browser.find_element(:id, 'cc-exp').send_keys(120.days.from_now.strftime('%m/%d'))
+    page.driver.browser.find_element(:id, 'cc-exp').send_keys(120.days.from_now.strftime('%m/%y'))
   end
 end
 
