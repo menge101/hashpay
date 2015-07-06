@@ -7,8 +7,8 @@
       <div class="form-inline">
         <div class="row">
           <div class="form-group">
-            <input class="form-control" id="hashName" type="text" name="names[]" placeholder="Name">
-            <input class="form-control" id="kennel" type="text" name="kennel[]" placeholder="Kennel">
+            <input class="form-control name-group" id="hashName" type="text" name="names[]" placeholder="Name">
+            <input class="form-control kennel-group" id="kennel" type="text" name="kennels[]" placeholder="Kennel">
             <a href="#" id="add_tooltip" data-toggle="tooltip" title="Click to add another attendee">
               <button class="btn btn-success btn-add" id="add_button" type="button">
                 <span class="glyphicon glyphicon-plus"></span>
@@ -21,8 +21,8 @@
         <!-- template for adding a new attendee -->
         <div class="row hide" id="attendeeTemplate">
           <div class="form-group">
-            <input class="form-control" type="text" name="names[]" placeholder="Name">
-            <input class="form-control" type="text" name="kennel[]" placeholder="Kennel">
+            <input class="form-control name-group" type="text" name="names[]" placeholder="Name">
+            <input class="form-control kennel-group" type="text" name="kennels[]" placeholder="Kennel">
             <button class="btn btn-danger btn-rmv" type="button">
               <span class="glyphicon glyphicon-minus"></span>
             </button>

@@ -8,6 +8,7 @@ class AttendeesController < ApplicationController
   end
 
   def create
+    puts "entered controller"
     @event = { name: 'P3H3 Inaug',
                cost: 5.01,
                date: Time.zone.parse('2015-08-02 14:00:00'),
@@ -16,7 +17,7 @@ class AttendeesController < ApplicationController
 
     attendee_array = create_identity_sets(params)
     attendee_count = attendee_array.length
-    cost =  attendee_count * @event[:cost]
+    cost =  attendee_count * BigDecimal.new(@event[:cost], 3)
 
     stripe_response = StripeGateway.charge(params[:stripeToken], cost * 100, "#{stringify_cost(cost)} paid for #{@event[:name]} registration")
 
@@ -25,7 +26,7 @@ class AttendeesController < ApplicationController
         x = Attendee.create(person)
         logger.debug x.errors.full_messages
       end
-      redirect_to :whosecoming, notice: successful_payment_notice(@event[:cost], attendee_count, @event[:name])
+      redirect_to :whosecoming, notice: successful_payment_notice(cost, attendee_count, @event[:name])
     else
       redirect_to :back, alert: stripe_response[:error]
     end
@@ -42,7 +43,7 @@ class AttendeesController < ApplicationController
 
   def create_identity_sets(params)
     name_array = params[:names]
-    kennel_array = params[:kennel]
+    kennel_array = params[:kennels]
     identities = []
     name_array.each_with_index do |name, index|
       identities << { name: name, kennel: kennel_array[index], email: params[:stripeEmail]}
@@ -51,9 +52,7 @@ class AttendeesController < ApplicationController
   end
 
   def stringify_cost(cost)
-    dollars = cost.to_i
-    cents = cost * 100 % 100
-    "#{dollars.to_s}.#{cents}"
+    BigDecimal.new(cost, 3).to_s
   end
 
   def successful_payment_notice(cost, count, event_name)

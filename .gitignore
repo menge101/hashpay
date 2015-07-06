@@ -17,3 +17,5 @@
 
 # Ignore files from merges
 *.orig
+
+.idea/workspace.xml

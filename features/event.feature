@@ -16,14 +16,78 @@ Feature:
     And I set name to 'Weasel'
     And I set kennel to 'pgh-h3'
     When I click the 'pay with stripe' button
-    Then the stripe payment overlay is displayed
-    When I enter 'test@test.com' in the email field
+    And I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
-    And I sleep for 3600 seconds
+    Then a notice message is flashed reading '5.01 paid for P3H3 Inaug registration for 1 person'
+    And the 'whosecoming' page is displayed
+    And the attendee list has 1 entry
+    And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
 
+  Scenario: Multiple blank fields do not increase billing
+    Given I navigate to the event page
+    And the stripe payment overlay is not displayed
+    And I set name to 'Weasel'
+    And I set kennel to 'pgh-h3'
+    When I click the 'add' button
+    And I click the 'add' button
+    And I click the 'pay with stripe' button
+    And I enter 'a random email' in the email field
+    And I enter a valid visa card
+    And I enter a expiration date in the future
+    And I enter a cvc code of '123'
+    And I click the stripe pay button
+    Then a notice message is flashed reading '5.01 paid for P3H3 Inaug registration for 1 person'
 
+  Scenario: Register two attendees
+    Given I navigate to the event page
+    And the stripe payment overlay is not displayed
+    And I set name to 'Weasel'
+    And I set kennel to 'pgh-h3'
+    And I add an attendee with name 'PWE' and kennel 'Tokyo-hhh'
+    When I click the 'pay with stripe' button
+    And I enter 'a random email' in the email field
+    And I enter a valid visa card
+    And I enter a expiration date in the future
+    And I enter a cvc code of '123'
+    And I click the stripe pay button
+    Then a notice message is flashed reading '10.02 paid for P3H3 Inaug registration for 2 people'
+    And the 'whosecoming' page is displayed
+    And the attendee list has 2 entries
+    And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
+    And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'
 
+  Scenario: Register three attendees
+    Given I navigate to the event page
+    And the stripe payment overlay is not displayed
+    And I set name to 'Weasel'
+    And I set kennel to 'pgh-h3'
+    And I add an attendee with name 'Cock Secret' and kennel 'SL-UT HHH'
+    And I add an attendee with name 'PWE' and kennel 'Tokyo-hhh'
+    When I click the 'pay with stripe' button
+    And I enter 'a random email' in the email field
+    And I enter a valid visa card
+    And I enter a expiration date in the future
+    And I enter a cvc code of '123'
+    And I click the stripe pay button
+    Then a notice message is flashed reading '15.03 paid for P3H3 Inaug registration for 3 people'
+    And the 'whosecoming' page is displayed
+    And the attendee list has 3 entries
+    And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
+    And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'
 
+  Scenario: Credit Card rejection
+    Given I navigate to the event page
+    And the stripe payment overlay is not displayed
+    And I set name to 'Weasel'
+    And I set kennel to 'pgh-h3'
+    When I click the 'pay with stripe' button
+    And I enter 'a random email' in the email field
+    And I enter an invalid visa card
+    And I enter a expiration date in the future
+    And I enter a cvc code of '123'
+    And I click the stripe pay button
+    Then the stripe payment overlay is displayed
+    And the credit card field is marked invalid

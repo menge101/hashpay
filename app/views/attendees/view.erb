@@ -1,2 +1,20 @@
-<h2>Thank you for your payment <%= @hash_name %>.</br>
-You are registered for the PGH-H3 Red Dress run!</h2>
+<div id="event"><%= render partial: 'attendees/event', locals: { event: @event } %></div>
+<div id="hashers">
+  <table id="" class="table table-striped">
+    <caption>Registered Hashers:</caption>
+    <thead id="hasher_table_head">
+      <tr>
+        <th>Name</th>
+        <th>Kennel</th>
+      </tr>
+    </thead>
+    <tbody id="hasher_list">
+      <% @hashers.each do |hasher| %>
+        <tr>
+          <td class="name"><%= hasher.name %></td>
+          <td class="kennel"><%= hasher.kennel %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

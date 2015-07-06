@@ -19,8 +19,8 @@ class EventInfoSection < SitePrism::Section
 end
 
 class RegistrationSection < SitePrism::Section
-  element :hash_name, 'input#hashName'
-  element :kennel, 'input#kennel'
+  elements :hash_names, 'div.row div.form-group input.name-group'
+  elements :kennels, 'div.row div.form-group input.kennel-group'
   element :add_button, 'button#add_button'
   element :add_tooltip, 'a#add_tooltip'
   element :new_tooltip, 'a#new_tooltip'
@@ -34,6 +34,7 @@ end
 
 class EventPage < SitePrism::Page
   set_url '/'
+  element :flash_messages, 'div#flash_messages'
   section :event_info, EventInfoSection, 'div#event'
   iframe :map_iframe, MapIframe, '#map'
   section :registration, RegistrationSection, 'div#rego'

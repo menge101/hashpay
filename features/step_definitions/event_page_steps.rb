@@ -1,5 +1,5 @@
 When /^I click the '(.+)' button$/ do |button|
-  button_map = { 'pay with stripe' => :stripe_button}
+  button_map = { 'pay with stripe' => :stripe_button, 'add' => :add_button}
   @event.registration.send(button_map[button]).click
 end
 
@@ -33,10 +33,24 @@ Then /^the stripe payment overlay is (not )?displayed$/ do |negation|
   expect(@event.has_stripe_iframe?).to (negation.blank? ? be_truthy : be_falsey)
 end
 
+And /^I set the (first|last) name to '(.+)'$/ do |place, name|
+  @event.registration.hash_names.send(place.to_sym).set(name)
+end
+
+And /^I set the (first|last) kennel to '(.+)'$/ do |place, kennel|
+  @event.registration.kennels.send(place.to_sym).set(kennel)
+end
+
+And /^I add an attendee with name '(.+)' and kennel '(.+)'$/ do |name, kennel|
+  step "I click the 'add' button"
+  step "I set the last name to '#{name}'"
+  step "I set the last kennel to '#{kennel}'"
+end
+
 And /^I set name to '(.+)'$/ do |name|
-  @event.registration.hash_name.set(name)
+  step "I set the first name to '#{name}'"
 end
 
 And /^I set kennel to '(.+)'$/ do |kennel|
-  @event.registration.kennel.set(kennel)
+  step "I set the first kennel to '#{kennel}'"
 end
