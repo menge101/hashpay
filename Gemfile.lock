@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    anticipate (0.1.1)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.2.1)
       execjs
@@ -195,6 +196,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anticipate
   bootstrap-sass
   capybara
   coffee-rails (~> 4.0.0)

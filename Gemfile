@@ -25,6 +25,7 @@ group :test do
  gem 'database_cleaner'
  gem 'site_prism'
  gem 'faker'
+ gem 'anticipate'
 end
 
 group :development, :test do
