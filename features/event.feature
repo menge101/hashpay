@@ -3,12 +3,15 @@ Feature:
   I want to register for an event,
   so that I can go have fun.
 
+  Background:
+    Given a default event
+
   Scenario: Event info is displayed
     When I navigate to the event page
-    Then the event name is 'P3H3 Inaug'
-    And the event description is 'The first run of the Pittsburgh area Family hash'
-    And the event location is 'Sanders St & Richmond Ave, Pittsburgh pa'
-    And the event cost is '$5.00/person'
+    Then the event name is 'Test Event'
+    And the event description is 'A test event'
+    And the event location is '2020 Smallman Street, Pittsburgh, PA'
+    And the event cost is '$50.01/person'
 
   Scenario: Register a single attendee
     Given I navigate to the event page
@@ -21,8 +24,8 @@ Feature:
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
-    Then a notice message is flashed reading '5.01 paid for P3H3 Inaug registration for 1 person'
-    And the 'whosecoming' page is displayed
+    Then a notice message is flashed reading '50.01 paid for Test Event registration for 1 person'
+    #And the 'whosecoming' page is displayed
     And the attendee list has 1 entry
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
 
@@ -39,7 +42,7 @@ Feature:
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
-    Then a notice message is flashed reading '5.01 paid for P3H3 Inaug registration for 1 person'
+    Then a notice message is flashed reading '50.01 paid for Test Event registration for 1 person'
 
   Scenario: Register two attendees
     Given I navigate to the event page
@@ -53,8 +56,8 @@ Feature:
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
-    Then a notice message is flashed reading '10.02 paid for P3H3 Inaug registration for 2 people'
-    And the 'whosecoming' page is displayed
+    Then a notice message is flashed reading '100.02 paid for Test Event registration for 2 people'
+    #And the 'whosecoming' page is displayed
     And the attendee list has 2 entries
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
     And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'
@@ -72,8 +75,8 @@ Feature:
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
     And I click the stripe pay button
-    Then a notice message is flashed reading '15.03 paid for P3H3 Inaug registration for 3 people'
-    And the 'whosecoming' page is displayed
+    Then a notice message is flashed reading '150.03 paid for Test Event registration for 3 people'
+    #And the 'whosecoming' page is displayed
     And the attendee list has 3 entries
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
     And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'

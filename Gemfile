@@ -30,5 +30,6 @@ end
 
 group :development, :test do
  gem 'ruby-debug-ide', require: false
+ gem 'factory_girl_rails'
 end
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'attendees#index'
-  post 'create' => 'attendees#create'
-  get 'whosecoming' => 'attendees#view'
+  root 'events#index'
+  post 'events/:id' => 'events#register'
+  get 'events/:id/whosecoming' => 'events#view', as: :whosecoming
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
