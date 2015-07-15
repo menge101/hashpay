@@ -8,19 +8,18 @@
 </head>
 <body>
 <div class="container">
-    <%= image_tag('/images/p3h3_temp_logo.png', {alt: 'P3H3 Inaugural run Rego', class: 'img-responsive'}) %>
+    <%= image_tag('/images/p3h3_ribbon_tweaked.png', {alt: 'P3H3 Inaugural run Rego', class: 'img-responsive center-block'}) %>
   <div class="panel-group">
     <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
-      <div class="panel-heading">
-        <%= render partial: "shared/flash_messages", flash: flash %>
-      </div>
+      <div class="panel-heading"></div>
       <div class="panel-body">
+        <%= render partial: "shared/flash_messages", flash: flash %>
         <%= yield %>
       </div>
       <div class="panel-footer"></div>
       <div class="col-md-2 col-md-offset-10">
         <a id="facebook_link" href="https://www.facebook.com/groups/883347525061033/">
-          <%= image_tag('/images/facebookButton.jpg', {alt: 'Facebook', class: 'img-responsive', id: 'facebook_button'}) %>
+          <%= image_tag('/images/facebookbutton.png', {alt: 'Facebook', class: 'img-responsive', id: 'facebook_button'}) %>
         </a>
       </div>
     </div>

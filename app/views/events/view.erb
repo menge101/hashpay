@@ -1,8 +1,8 @@
 <% button = { text: 'Event Registration', path: view_path(id: @event.id)} %>
 <div id="event"><%= render partial: 'events/event', locals: { event: @event, button: button } %></div>
 <div id="hashers">
-  <table id="" class="table table-striped">
-    <caption>Registered Hashers:</caption>
+  <table id="hasher_table" class="table table-striped">
+    <caption class="visible-caption" ><strong>Registered Hashers:</strong></caption>
     <thead id="hasher_table_head">
       <tr>
         <th>Name</th>
