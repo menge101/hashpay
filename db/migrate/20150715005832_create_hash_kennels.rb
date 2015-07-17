@@ -8,5 +8,7 @@ class CreateHashKennels < ActiveRecord::Migration
       t.datetime :founding
       t.timestamps
     end
+
+    add_index(:hash_kennels, :abbreviation, unique: true)
   end
 end

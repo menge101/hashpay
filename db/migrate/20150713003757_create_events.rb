@@ -10,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
-
+    add_index :events, [:hash_kennel_id, :date]
     add_index :events, :date
   end
 end

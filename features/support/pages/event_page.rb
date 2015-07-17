@@ -33,7 +33,7 @@ class MapIframe < SitePrism::Page
 end
 
 class EventPage < SitePrism::Page
-  set_url '/'
+  set_url '/events/1'
   element :flash_messages, 'div#flash_messages'
   section :event_info, EventInfoSection, 'div#event'
   iframe :map_iframe, MapIframe, '#map'

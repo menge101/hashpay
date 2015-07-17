@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150715005832) do
   end
 
   add_index "events", ["date"], name: "index_events_on_date", using: :btree
+  add_index "events", ["hash_kennel_id", "date"], name: "index_events_on_hash_kennel_id_and_date", using: :btree
   add_index "events", ["hash_kennel_id"], name: "index_events_on_hash_kennel_id", using: :btree
 
   create_table "hash_kennels", force: true do |t|
@@ -50,5 +51,7 @@ ActiveRecord::Schema.define(version: 20150715005832) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "hash_kennels", ["abbreviation"], name: "index_hash_kennels_on_abbreviation", unique: true, using: :btree
 
 end
