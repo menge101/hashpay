@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
 
 gem 'rails', '4.1.6'
 gem 'pg'
@@ -31,5 +32,11 @@ end
 group :development, :test do
  gem 'ruby-debug-ide', require: false
  gem 'factory_girl_rails'
+end
+
+group :production do
+ gem 'puma'
+ gem 'rack-timeout'
+ gem 'foreman'
 end
 
