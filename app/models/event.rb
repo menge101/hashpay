@@ -18,8 +18,8 @@ class Event < ActiveRecord::Base
     identities.reject { |id| id[:name].blank? }
   end
 
-  def stringify_cost(cost)
-    BigDecimal.new(cost, 3).to_s
+  def stringify_cost(cost=self.cost)
+    Money.us_dollar(BigDecimal.new(cost, 3) * 100).format
   end
 
   def successful_payment_notice(cost, count, event_name)
@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
     attendee_count = attendee_array.length
     total =  attendee_count * BigDecimal.new(self.cost, 3)
 
-    stripe_response = StripeGateway.charge(params[:stripeToken], total * 100, "#{stringify_cost(self.cost)} paid for #{self.name} registration")
+    stripe_response = StripeGateway.charge(params[:stripeToken], total * 100, "#{stringify_cost} paid for #{self.name} registration")
     response = {}
 
     if stripe_response[:success]

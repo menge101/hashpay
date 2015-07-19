@@ -54,3 +54,7 @@ end
 And /^I set kennel to '(.+)'$/ do |kennel|
   step "I set the first kennel to '#{kennel}'"
 end
+
+And /^facebook link is present$/ do
+  expect(@event.has_facebook_link?).to be_truthy
+end

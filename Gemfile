@@ -11,6 +11,7 @@ gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'sass-rails'
+gem 'money'
 
 group :development do
  gem 'spring'

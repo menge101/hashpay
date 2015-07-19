@@ -9,7 +9,7 @@
       <dt id="eventWhere">Where?</dt>
       <dd id="eventLocation"><%= event[:location] %></dd>
       <dt id="eventHow">How Much?</dt>
-      <dd id="eventCost"><%= "$#{BigDecimal.new(event[:cost], 3)}/person" %></dd>
+      <dd id="eventCost"><%= "#{event.stringify_cost}/person" %></dd>
     </dl>
   </div>
   <div class="col-md-6" id="map-canvas">
