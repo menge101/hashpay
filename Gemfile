@@ -38,5 +38,6 @@ group :production do
  gem 'puma'
  gem 'rack-timeout'
  gem 'foreman'
+ gem 'rails_12factor'
 end
 
