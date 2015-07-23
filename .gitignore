@@ -19,3 +19,8 @@
 *.orig
 
 .idea/workspace.xml
+.idea/modules.xml
+.idea/runConfigurations/*
+
+#ignore keys
+*.key
