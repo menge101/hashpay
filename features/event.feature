@@ -11,6 +11,7 @@ Feature:
     And the event location is '2020 Smallman Street, Pittsburgh, PA'
     And the event cost is '$50.01/person'
     And facebook link is present
+    And the event navigational button text reads 'Registration List'
 
   Scenario: Register a single attendee
     Given a default event
@@ -28,6 +29,7 @@ Feature:
     #And the 'whosecoming' page is displayed
     And the attendee list has 1 entry
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
+    And the event navigational button text reads 'Event Registration'
 
   Scenario: Multiple blank fields do not increase billing
     Given a default event

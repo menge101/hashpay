@@ -28,6 +28,10 @@ Then /^the event page is using https$/ do
   expect(@event.secure?).to be_truthy
 end
 
+Then /^the event navigational button text reads '(.+)'$/ do |text|
+  expect(@event.event_info.nav_button.text).to eq(text)
+end
+
 Then /^the stripe payment overlay is (not )?displayed$/ do |negation|
   @event.wait_for_stripe_iframe
   expect(@event.has_stripe_iframe?).to (negation.blank? ? be_truthy : be_falsey)

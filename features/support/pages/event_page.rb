@@ -16,6 +16,7 @@ class EventInfoSection < SitePrism::Section
   element :event_date, 'dd#eventDate'
   element :event_cost, 'dd#eventCost'
   element :event_location, 'dd#eventLocation'
+  element :nav_button, 'button#event_nav_btn'
 end
 
 class RegistrationSection < SitePrism::Section

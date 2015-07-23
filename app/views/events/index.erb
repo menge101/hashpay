@@ -1,2 +1,3 @@
-<div id="event"><%= render partial: 'events/event', locals: { event: @event } %></div>
+<% button = { text: 'Registration List', path: whosecoming_path(id: @event.id)} %>
+<div id="event"><%= render partial: 'events/event', locals: { event: @event, button: button } %></div>
 <div id="rego"><%= render partial: 'events/rego', locals: { event: @event, public_key: @public_key } %></div>

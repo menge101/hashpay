@@ -18,9 +18,8 @@
 # Ignore files from merges
 *.orig
 
-.idea/workspace.xml
-.idea/modules.xml
-.idea/runConfigurations/*
+#All these annoying idea files
+.idea/*
 
 #ignore keys
 *.key
