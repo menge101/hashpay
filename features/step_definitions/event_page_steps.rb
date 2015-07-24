@@ -3,6 +3,9 @@ When /^I click the '(.+)' button$/ do |button|
   @event.registration.send(button_map[button]).click
 end
 
+When /^I click on the '(?:Event Registration|Registration List)' button$/ do
+  @event.event_info.nav_button.click
+end
 
 Then /^I see all expected elements on the page$/ do
   expect(@event).to be_all_there #does not work due to stripe iframe being invisible until clicked

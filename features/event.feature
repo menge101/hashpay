@@ -26,7 +26,7 @@ Feature:
     And I enter a cvc code of '123'
     And I click the stripe pay button
     Then a notice message is flashed reading '$50.01 paid for Test Event registration for 1 person'
-    #And the 'whosecoming' page is displayed
+    And the 'whosecoming' page is displayed
     And the attendee list has 1 entry
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
     And the event navigational button text reads 'Event Registration'
@@ -61,7 +61,7 @@ Feature:
     And I enter a cvc code of '123'
     And I click the stripe pay button
     Then a notice message is flashed reading '$100.02 paid for Test Event registration for 2 people'
-    #And the 'whosecoming' page is displayed
+    And the 'whosecoming' page is displayed
     And the attendee list has 2 entries
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
     And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'
@@ -81,7 +81,7 @@ Feature:
     And I enter a cvc code of '123'
     And I click the stripe pay button
     Then a notice message is flashed reading '$150.03 paid for Test Event registration for 3 people'
-    #And the 'whosecoming' page is displayed
+    And the 'whosecoming' page is displayed
     And the attendee list has 3 entries
     And the attendee list first entry has name 'Weasel' and kennel 'pgh-h3'
     And the attendee list last entry has name 'PWE' and kennel 'Tokyo-hhh'
@@ -109,3 +109,11 @@ Feature:
     And the event location is '2020 Smallman Street, Pittsburgh, PA'
     And the event cost is '$123.00/person'
     And facebook link is present
+
+  Scenario: Navigate to whose coming list without registering
+    Given a default event
+    And I navigate to the event page
+    When I click on the 'Registration List' button
+    Then the 'whosecoming' page is displayed
+    When I click on the 'Event Registration' button
+    Then the 'event' page is displayed
