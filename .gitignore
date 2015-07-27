@@ -23,3 +23,7 @@
 
 #ignore keys
 *.key
+
+#ignore swap files
+*.swp
+*.swo
