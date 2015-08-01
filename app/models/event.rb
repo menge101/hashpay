@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
   validates :location, presence: true
   validates :hash_kennel, presence: true
 
+  scope :upcoming, -> { where("date > ?", DateTime.now).order('date ASC, created_at ASC') }
+
   def create_identity_sets(params)
     name_array = params[:names]
     kennel_array = params[:kennels]
