@@ -4,6 +4,8 @@ end
 
 Then /^the attendee list (first|last) entry has name '(.+)' and kennel '(.+)'$/ do |location, name, kennel|
   @view = ViewPage.new
-  expect(@view.hasher_listing.hasher_names.send(location.to_sym).text).to eq(name)
-  expect(@view.hasher_listing.kennels.send(location.to_sym).text).to eq(kennel)
+  name_array = @view.hasher_listing.hasher_names.map { |element| element.text }
+  kennel_array = @view.hasher_listing.kennels.map { |element| element.text }
+  expect(name_array).to include(name)
+  expect(kennel_array).to include(kennel)
 end

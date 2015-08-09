@@ -55,6 +55,7 @@ Feature:
     And I set kennel to 'pgh-h3'
     And I add an attendee with name 'PWE' and kennel 'Tokyo-hhh'
     When I click the 'pay with stripe' button
+    And the stripe payment overlay is displayed
     And I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future

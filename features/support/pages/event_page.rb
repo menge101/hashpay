@@ -7,16 +7,16 @@ class StripeIframe < SitePrism::Page
 end
 
 class EventInfoSection < SitePrism::Section
-  element :event_what, 'dt#eventWhat'
-  element :event_when, 'dt#eventWhen'
-  element :event_where, 'dt#eventWhere'
-  element :event_how, 'dt#eventHow'
-  element :event_name, 'dd#eventName'
-  element :event_description, 'dd#eventDescription'
-  element :event_date, 'dd#eventDate'
-  element :event_cost, 'dd#eventCost'
-  element :event_location, 'dd#eventLocation'
-  element :nav_button, 'button#event_nav_btn'
+  element :event_what, "dt[id^=\"eventWhat\"]"
+  element :event_name, "dd[id^=\"eventName\"]"
+  element :event_description, "dd[id^=\"eventDescription\"]"
+  element :event_when, "dt[id^=\"eventWhen\"]"
+  element :event_date, "dd[id^=\"eventDate\"]"
+  element :event_how, "dt[id^=\"eventHow\"]"
+  element :event_cost, "dd[id^=\"eventCost\"]"
+  element :event_where, "dt[id^=\"eventWhere\"]"
+  element :event_location, "dd[id^=\"eventLocation\"]"
+  element :nav_button, "button[id^=\"event_nav_btn\"]"
 end
 
 class RegistrationSection < SitePrism::Section

@@ -10,13 +10,17 @@ kennel = HashKennel.create({ full_name: 'Pittsburgh Prophylactic Problems Hash H
                              abbreviation: 'P3H3',
                              description: 'A running club with a children problem',
                              region: 'Pittsburgh, PA, USA',
-                             founding: Time.zone.parse('2015-08-02 14:00:00')})
+                             founding: Time.zone.parse('2015-08-02 14:00:00'),
+                             allow_rego?: true
+                           })
 
 Event.create({ name: 'P3H3 Inaug',
                cost: 5.00,
-               date: Time.zone.parse('2015-08-02 14:00:00'),
+               date: Time.zone.parse('2015-09-02 14:00:00'),
                description: 'The first run of the Pittsburgh area Family hash',
                location: 'Sanders St & Richmond Ave, Pittsburgh pa',
-               hash_kennel_id: kennel.id })
+               hash_kennel_id: kennel.id,
+               allow_rego?: true
+             })
 
 

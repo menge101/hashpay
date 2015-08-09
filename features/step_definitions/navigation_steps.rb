@@ -4,8 +4,9 @@ When /^I navigate to the event page$/ do
 end
 
 When /I navigate to the kennel page$/ do
-  @kennel = KennelPage.new
-  @kennel.load
+  @kennelPage = KennelPage.new
+  abrv = @kennel ? @kennel.abbreviation : 'P3H3'
+  @kennelPage.load(abbreviation: abrv)
 end
 
 Then /^the 'event' page is displayed$/ do

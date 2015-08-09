@@ -3,4 +3,9 @@
 rake db:drop
 rake db:create
 rake db:migrate
-rake db:seed
+
+if [ $RAILS_ENV != 'test' ]
+  then
+  rake db:seed
+fi
+

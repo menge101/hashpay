@@ -5,6 +5,7 @@ class CreateHashKennels < ActiveRecord::Migration
       t.string :abbreviation
       t.string :description
       t.string :region
+      t.boolean :allow_rego?
       t.datetime :founding
       t.timestamps
     end

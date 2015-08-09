@@ -49,4 +49,8 @@ class Event < ActiveRecord::Base
     response
   end
 
+  def rego_allowed?
+    self.allow_rego? && self.hash_kennel.allow_rego?
+  end
+
 end

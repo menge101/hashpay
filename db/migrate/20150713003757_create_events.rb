@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :date
       t.string :description
       t.string :location
+      t.boolean :allow_rego?
 
       t.timestamps
     end

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150715005832) do
     t.datetime "date"
     t.string   "description"
     t.string   "location"
+    t.boolean  "allow_rego?"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150715005832) do
     t.string   "abbreviation"
     t.string   "description"
     t.string   "region"
+    t.boolean  "allow_rego?"
     t.datetime "founding"
     t.datetime "created_at"
     t.datetime "updated_at"

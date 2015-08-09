@@ -49,10 +49,11 @@
   <% events = @hash_kennel.events.upcoming %>
   <% if events.length > 0 %>
     <% events.each_with_index do |event, idx| %>
+      <% button_string = event.rego_allowed? ? 'Event Registration' : 'Event Details' %>
       <div id=<%= "event_#{idx}" %>>
-        <%= render partial: 'events/event', locals: { event: event, button: nil } %>
+        <%= render partial: 'events/event', locals: { event: event, button: nil, index: idx } %>
         <%= link_to register_path(id: event.id), { method: :get } do %>
-          <button id=<%= "rego_btn_#{idx}" %> type="button" class="btn btn-primary col-md-2 col-md-offset-5">Register for Event</button>
+          <button id=<%= "event_nav_btn_#{idx}" %> type="button" class="btn btn-primary col-md-2 col-md-offset-5"><%= button_string %></button>
         <% end %>
       </div>
     <% end %>
