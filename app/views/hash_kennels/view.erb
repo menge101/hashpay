@@ -2,46 +2,12 @@
   <h1>
     <div class="col-md-2 col-md-offset-5"  id="abbreviated_hash_name"><%= @hash_kennel.abbreviation %></div>
     <div class="col-md-8 col-md-offset-2 text-center">
-      <small id="full_hash_name">
-        <%= @hash_kennel.full_name %>
+      <small id="hash description">
+        <%= @hash_kennel.description %>
       </small>
     </div>
   </h1>
 </div>
-<h3><div class="col-md-3">What to expect:</div></h3>
-<div class="col-md-10 col-md-offset-1">
-  <dl>
-    <dt id="what_is_it">What exactly is a hash?</dt>
-    <dd id="hash_described">It's a running event.  Without times, PRs, winners, losers, or even a clear path.</dd>
-    <dt id="cost">Does it cost anything?</dt>
-    <dd id="probably">May vary event to event, but right now we are asking for $5 a person to help cover the costs of planning each event.</dd>
-    <dt id="have_to">Do I/we have to run?</dt>
-    <dd id="nope">No!  You can walk, jog, or move at your own pace.  Nobody will be left behind!</dd>
-    <dt id="kids">Is this really a child-friendly event?</dt>
-    <dd id="trying">That's the goal.  This is our first attempt at this, so expect some experimentation.  This is a "go with the flow" sort of thing.</dd>
-    <dt id="age">What age range is this appropriate for?</dt>
-    <dd id="all">The goal is to provide an experience that can be enjoyed by any child with parental supervision.  So, 0 on up!</dd>
-    <dt id="stroller">Is the trail stroller friendly?</dt>
-    <dd id="goal">Part of the goal of this group is to be accessible to all families.  So, yes!  However, it may diverge form the primary path at times.</dd>
-    <dt id="bring">What should I/we bring</dt>
-    <dd id="family">Yourself, your family, an adventurous mind, and a good attitude.</dd>
-    <dt id="dogs">Can I bring my dog?</dt>
-    <dd id="yap">This is something that may vary event to event.  Well behaved dogs are typically welcome, but we may have stops in places that do not allow dogs.</dd>
-    <dt id="length">How long is the trail?</dt>
-    <dd id="5k_or_less">That depends on who plans the trail, but the goal is to keep this at a length that is good for everyone.  Also, there are stops along the way.</dt>
-    <dt id="stops">There are stops?</dt>
-    <dd id="yup">Yeah, we will stop for refreshments along the way to allow slower people to catch up and keep everyone together.</dd>
-    <dt id="refreshments">What kind of refreshments?</dt>
-    <dd id="beer">Sodas, Juice, Water, various snacks.  And Beer.</dd>
-    <dt id="where">Where does the trail start and end?</dt>
-    <dd id="event_where">That various with each event, check the event listings for those kind of details.</dd>
-    <dt id="wear">What should I/we wear?</dt>
-    <dd id="velour_track_suit">General athletic attire - something you feel comfortable in given the weather.</dd>
-    <dt id="rain">What if it rains?</dt>
-    <dd id="postal-like">Hashing is a rain or shine event.  Sometimes the most fun is had in the worst weather.  But check the <a href="https://www.facebook.com/groups/883347525061033/">Facebook group</a> for any discussion there.</dd>
-  </dl>
-</div>
-<div class="col-xs-12" style="height:25px;"></div>
 
 <h3><div class="col-md-3">Upcoming Events:</div></h3>
 <div class="col-xs-12" style="height:25px;"></div>
@@ -56,6 +22,7 @@
           <button id=<%= "event_nav_btn_#{idx}" %> type="button" class="btn btn-primary col-md-2 col-md-offset-5"><%= button_string %></button>
         <% end %>
       </div>
+          <div class="col-xs-12" style="height:10px;"></div>
     <% end %>
   <% else %>
     <h3>There are no upcoming events</h3>

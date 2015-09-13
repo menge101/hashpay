@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   sequence :date do |n|
-    DateTime.now + n.to_i.days
+    DateTime.now + n.to_i.days + 100.days
   end
 
   #Default Event
