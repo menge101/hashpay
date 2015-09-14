@@ -1,6 +1,10 @@
 Given /^a default event$/ do
-  @event = FactoryGirl.create(:event)
-  @kennel = @event.hash_kennel
+  if @kennel
+    @event = FactoryGirl.create(:event, { hash_kennel: @kennel })
+  else
+    @event = FactoryGirl.create(:event)
+    @kennel = @event.hash_kennel
+  end
 end
 
 Given /^an event with cost of '(.+)'$/ do |cost|

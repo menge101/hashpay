@@ -7,22 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <div class="panel-group">
-    <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
-      <div class="panel-heading"></div>
-      <div class="panel-body">
-        <%= render partial: "shared/flash_messages", flash: flash %>
-        <%= yield %>
-      </div>
-      <div class="panel-footer"></div>
-      <div class="col-md-2 col-md-offset-10">
-        <a id="facebook_link" href="https://www.facebook.com/groups/883347525061033/">
-          <%= image_tag('/images/facebookbutton.png', {alt: 'Facebook', class: 'img-responsive', id: 'facebook_button'}) %>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+    <%= yield %>
 </body>
 </html>

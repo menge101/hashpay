@@ -10,8 +10,8 @@ Feature:
     And the event description is 'A test event'
     And the event location is '2020 Smallman Street, Pittsburgh, PA'
     And the event cost is '$50.01/person'
-    And facebook link is present
     And the event navigational button text reads 'Registration List'
+    And facebook link is not present on event page
 
   Scenario: Register a single attendee
     Given a default event
@@ -109,7 +109,6 @@ Feature:
     And the event description is 'A test event'
     And the event location is '2020 Smallman Street, Pittsburgh, PA'
     And the event cost is '$123.00/person'
-    And facebook link is present
 
   Scenario: Navigate to whose coming list without registering
     Given a default event
@@ -118,3 +117,14 @@ Feature:
     Then the 'whosecoming' page is displayed
     When I click on the 'Event Registration' button
     Then the 'event' page is displayed
+
+  Scenario: Event belongs to a kennel with a facebook link
+    Given a kennel with facebook
+    And a default event
+    When I navigate to the event page
+    Then the event name is 'Test Event'
+    And the event description is 'A test event'
+    And the event location is '2020 Smallman Street, Pittsburgh, PA'
+    And the event cost is '$50.01/person'
+    And the event navigational button text reads 'Registration List'
+    And facebook link is present on event page

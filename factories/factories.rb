@@ -35,4 +35,8 @@ FactoryGirl.define do
   trait :rego_forbidden do
     allow_rego? false
   end
+
+  trait :with_facebook do
+    facebook_url 'https://www.facebook.com/groups/883347525061033/'
+  end
 end

@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150715005832) do
     t.string   "description"
     t.string   "region"
     t.boolean  "allow_rego?"
+    t.string   "facebook_url"
     t.datetime "founding"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -6,6 +6,7 @@ class CreateHashKennels < ActiveRecord::Migration
       t.string :description
       t.string :region
       t.boolean :allow_rego?
+      t.string :facebook_url
       t.datetime :founding
       t.timestamps
     end

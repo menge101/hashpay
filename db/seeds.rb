@@ -11,7 +11,8 @@ kennel = HashKennel.create({ full_name: 'Pittsburgh Prolific Procreators Hash Ho
                              description: 'Raising the next generation of half-minds',
                              region: 'Pittsburgh, PA, USA',
                              founding: Time.zone.parse('2015-08-02 14:00:00'),
-                             allow_rego?: true
+                             allow_rego?: true,
+                             facebook_url: 'https://www.facebook.com/groups/883347525061033/'
                            })
 
 Event.create({ name: 'P3H3 Inaug',
