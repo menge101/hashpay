@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   validates :description, presence: true
   validates :location, presence: true
   validates :hash_kennel, presence: true
+  geocoded_by :location
+  after_validation :geocode
 
   scope :upcoming, -> { where("date > ?", DateTime.now).order('date ASC, created_at ASC') }
 

@@ -23,6 +23,7 @@ group :test do
  gem 'selenium-webdriver'
  gem 'cucumber'
  gem 'rspec'
+ gem 'rspec-rails'
  gem 'cucumber-rails', :require => false
  gem 'database_cleaner'
  gem 'site_prism'

@@ -8,6 +8,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :location
       t.boolean :allow_rego?
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
