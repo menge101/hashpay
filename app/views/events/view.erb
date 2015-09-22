@@ -4,7 +4,7 @@
       <div class="panel-heading"></div>
       <div class="panel-body">
         <%= render partial: "shared/flash_messages", flash: flash %>
-        <% button = { text: 'Event Registration', path: view_path(id: @event.id)} %>
+        <% button = { text: 'Event Registration', path: registration_path(id: @event.id)} %>
         <div id="event"><%= render partial: 'events/event', locals: { event: @event, button: button } %></div>
         <div id="hashers">
           <table id="hasher_table" class="table table-striped">

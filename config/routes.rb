@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   get 'hash/:abbrev' => 'hash_kennels#view', controller: 'hash_kennels'
-  get 'events/:id' => 'events#index', as: :view
+  get 'events/:id' => 'events#registration', as: :registration
   post 'events/:id' => 'events#register', as: :register
   get 'events/:id/whosecoming' => 'events#view', as: :whosecoming
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#registration'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

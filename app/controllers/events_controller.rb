@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  def index
+  def registration
     @event = Event.find(params[:id])
   end
 
