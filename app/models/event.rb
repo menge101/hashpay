@@ -10,7 +10,10 @@ class Event < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
-  scope :upcoming, -> { where("date > ?", DateTime.now).order('date ASC, created_at ASC') }
+  MARKER_COUNT = 211.freeze
+  MARKER_PATH = 'images/markers'.freeze
+
+  scope :upcoming, -> { where('date > ?', DateTime.now).order('date ASC, created_at ASC') }
 
   def create_identity_sets(params)
     name_array = params[:names]
@@ -53,6 +56,30 @@ class Event < ActiveRecord::Base
 
   def rego_allowed?
     self.allow_rego? && self.hash_kennel.allow_rego?
+  end
+
+  def set_marker
+    { url: "#{MARKER_PATH}/#{calculate_marker}", width:  30, height: 42, anchor: [6,36] }
+  end
+
+  def calculate_marker
+    count = Event.upcoming.count
+    return 'onon_marker_0.png' if count <= 1
+    last = Event.upcoming.order('date ASC').last.date
+    first = Event.upcoming.order('date ASC').first.date
+    scaling_factor = calculate_scaling_factor(count, (seconds_to_days(last - first))).round(2)
+    marker_id = seconds_to_days(self.date - first) * scaling_factor
+    "onon_marker_#{marker_id.round}.png"
+  end
+
+  private
+
+  def calculate_scaling_factor(event_total, event_date_range)
+    MARKER_COUNT / event_date_range
+  end
+
+  def seconds_to_days(seconds)
+    seconds / 60 / 60 / 24
   end
 
 end

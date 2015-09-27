@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
 
-
+  get 'events' => 'events#index', as: :index
   get 'hash/:abbrev' => 'hash_kennels#view', controller: 'hash_kennels'
   get 'events/:id' => 'events#registration', as: :registration
   post 'events/:id' => 'events#register', as: :register
   get 'events/:id/whosecoming' => 'events#view', as: :whosecoming
 
-  root to: 'hash_kennels#view', abbrev: 'P3H3'
+  root to: 'events#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

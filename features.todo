@@ -1,3 +1,25 @@
-change whosecoming to whosecumming or add it or something
-main page
+More details for main page
+move marker data into RoR code
+info bubbles for markers
+-create custom markers
+create logo
+-event icon coloration with respect to time
+Indicate ranges on view
+event table - http://apneadiving.github.io/
+event table needs events ordered by distance from user location
+complete main page - logo, layout, etc
 fix events_controller for view method
+change whosecoming to whosecumming or add it or something
+major event functionality
+ - track rego count
+ - major event icon
+
+Otto?
+Hosting on AWS?
+
+hash bounties
+ - image upload
+ - map tagging
+ - S3 data storage for images?
+
+

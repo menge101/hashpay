@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'money'
+gem 'gmaps4rails'
 
 group :development do
  gem 'spring'
@@ -27,11 +28,12 @@ group :test do
  gem 'cucumber-rails', :require => false
  gem 'database_cleaner'
  gem 'site_prism'
- gem 'faker'
  gem 'anticipate'
+ gem 'fakeweb'
 end
 
 group :development, :test do
+ gem 'faker'
  gem 'ruby-debug-ide', require: false
  gem 'factory_girl_rails'
  gem 'color', require: false

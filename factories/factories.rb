@@ -8,6 +8,10 @@ FactoryGirl.define do
     DateTime.now + n.to_i.days + 100.days
   end
 
+  sequence :name do |n|
+    "Run ##{n}"
+  end
+
   #Default Event
   factory :event, class: Event do
     name 'Test Event'

@@ -1,4 +1,13 @@
 class EventsController < ApplicationController
+  def index
+    @events = Event.upcoming
+    @markers = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.picture event.set_marker
+    end
+  end
+
   def registration
     @event = Event.find(params[:id])
   end
