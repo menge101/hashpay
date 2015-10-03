@@ -53,6 +53,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    color (1.7.1)
     cucumber (2.0.0)
       builder (>= 2.1.2)
       cucumber-core (~> 1.1.3)
@@ -224,6 +225,7 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   coffee-rails (~> 4.0.0)
+  color
   cucumber
   cucumber-rails
   database_cleaner

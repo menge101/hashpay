@@ -34,6 +34,7 @@ end
 group :development, :test do
  gem 'ruby-debug-ide', require: false
  gem 'factory_girl_rails'
+ gem 'color', require: false
 end
 
 group :production do
