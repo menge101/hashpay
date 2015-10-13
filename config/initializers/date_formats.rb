@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:user] = Proc.new { |time| time.stamp("Sunday, May 1, 2000 @ 2:59 PM EST") }

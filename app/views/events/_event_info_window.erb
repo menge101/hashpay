@@ -1,0 +1,18 @@
+<div class="gmap_info_window">
+  <div class="giw_title"><%= event.name %></div>
+  <div class="giw_sub_title"><%= event.hash_kennel.full_name %></div>
+  <div class="giw_content">
+    <div class="giw_sub_title">When:</div>
+    <p><%= event.date.to_s(:user) %></p>
+    <div class="giw_sub_title">Where:</div>
+    <p><%= raw event.web_formatted_address %><br>
+      <%= "#{event.latitude}, #{event.longitude}" %></p>
+    <div class="giw_sub_title">What:</div>
+    <p><%= event.description %></p>
+    <% if event.hare %>
+      <div class="giw_sub_title">Who (is the Hare):</div>
+      <p><%= event.hare %><br><%= "Contact: #{event.hare_contact_number}" %></p>
+    <% end %>
+  </div>
+  <div class="giw_bottom_gradient"></div>
+</div>

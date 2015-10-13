@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'money'
 gem 'gmaps4rails'
+gem 'biggs'
+gem 'stamp'
 
 group :development do
  gem 'spring'

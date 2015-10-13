@@ -5,6 +5,7 @@ class EventsController < ApplicationController
       marker.lat event.latitude
       marker.lng event.longitude
       marker.picture event.set_marker
+      marker.infowindow render_to_string(partial: "/events/event_info_window", locals: { event: event })
     end
   end
 

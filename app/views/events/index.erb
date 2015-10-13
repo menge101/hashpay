@@ -34,18 +34,18 @@
                 height: 36
             },
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
         });
-        handler.map.centerOn(marker);
+        centerOn(marker);
     };
     var center;
     function calculateCenter() {
-        center = map.getCenter();
+        center = handler.map.getCenter();
     }
-    google.maps.event.addDomListener(map, 'idle', function() {
+    google.maps.event.addDomListener(handler.map, 'idle', function() {
         calculateCenter();
     });
     google.maps.event.addDomListener(window, 'resize', function() {
-        map.setCenter(center);
+        handler.map.setCenter(center);
     });
 </script>

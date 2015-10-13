@@ -33,6 +33,8 @@ GEM
     autoprefixer-rails (5.2.1)
       execjs
       json
+    biggs (0.3.3)
+      activerecord (>= 3.0)
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -195,6 +197,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    stamp (0.6.0)
     stripe (1.21.0)
       json (~> 1.8.1)
       rest-client (~> 1.4)
@@ -224,6 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   anticipate
+  biggs
   bootstrap-sass
   capybara
   coffee-rails (~> 4.0.0)
@@ -252,6 +256,7 @@ DEPENDENCIES
   selenium-webdriver
   site_prism
   spring
+  stamp
   stripe
   therubyracer
   uglifier (>= 1.3.0)
