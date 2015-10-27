@@ -55,7 +55,7 @@ Authentication
 Authorization
     hash kennel ownership
     super user
-    crawler write only access
+    crawler access
 
 Infrastructure
     RoR container
@@ -69,7 +69,8 @@ hash bounties
     S3 data storage for images?
 
 User accounts
-    mapping data upload
+    mapping data uploads
+    learn more about gpx data
     hashing heat maps
         per kennel
         per User
