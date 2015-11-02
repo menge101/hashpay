@@ -1,4 +1,4 @@
-When /^I click the '(.+)' button$/ do |button|
+When /^I click the '(.+)' button on the event page$/ do |button|
   button_map = { 'pay with stripe' => :stripe_button, 'add' => :add_button}
   @page.registration.send(button_map[button]).click
 end

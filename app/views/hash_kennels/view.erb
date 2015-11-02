@@ -1,48 +1,31 @@
-<div class="container">
-  <div class="panel-group">
-    <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
-      <div class="panel-heading"></div>
-      <div class="panel-body">
-        <%= render partial: "shared/flash_messages", flash: flash %>
-        <div>
-          <h1>
-            <div class="col-md-2 col-md-offset-5"  id="abbreviated_hash_name"><%= @hash_kennel.abbreviation %></div>
-            <div class="col-md-8 col-md-offset-2 text-center">
-              <small id="hash description">
-                <%= @hash_kennel.description %>
-              </small>
-            </div>
-          </h1>
-        </div>
-
-        <h3><div class="col-md-3">Upcoming Events:</div></h3>
-        <div class="col-xs-12" style="height:25px;"></div>
-        <div id="events" class="col-md-12">
-          <% events = @hash_kennel.events.upcoming %>
-          <% if events.length > 0 %>
-              <% events.each_with_index do |event, idx| %>
-                  <% button_string = event.rego_allowed? ? 'Event Registration' : 'Event Details' %>
-                  <div id=<%= "event_#{idx}" %>>
-                    <%= render partial: 'events/event', locals: { event: event, button: nil, index: idx } %>
-                    <%= link_to register_path(id: event.id), { method: :get } do %>
-                        <button id=<%= "event_nav_btn_#{idx}" %> type="button" class="btn btn-primary col-md-2 col-md-offset-5"><%= button_string %></button>
-                    <% end %>
-                  </div>
-                  <div class="col-xs-12" style="height:10px;"></div>
-              <% end %>
-          <% else %>
-              <h3>There are no upcoming events</h3>
-          <% end %>
-        </div>
-      </div>
-      <div class="panel-footer"></div>
-      <div id="common_footer" class="col-md-2 col-md-offset-10">
-        <% if @hash_kennel.facebook_url %>
-            <a id="facebook_link" href="<%= @hash_kennel.facebook_url %>">
-              <%= image_tag('/images/facebookbutton.png', {alt: 'Facebook', class: 'img-responsive', id: 'facebook_button'}) %>
-            </a>
-        <% end %>
-      </div>
+<%= render partial: "shared/flash_messages", flash: flash %>
+<div>
+  <h1>
+    <div class="col-md-2 col-md-offset-5"  id="abbreviated_hash_name"><%= @hash_kennel.abbreviation %></div>
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <small id="hash description">
+        <%= @hash_kennel.description %>
+      </small>
     </div>
-  </div>
+  </h1>
+</div>
+
+<h3><div class="col-md-3">Upcoming Events:</div></h3>
+<div class="col-xs-12" style="height:25px;"></div>
+<div id="events" class="col-md-12">
+  <% events = @hash_kennel.events.upcoming %>
+  <% if events.length > 0 %>
+      <% events.each_with_index do |event, idx| %>
+          <% button_string = event.rego_allowed? ? 'Event Registration' : 'Event Details' %>
+          <div id=<%= "event_#{idx}" %>>
+            <%= render partial: 'events/event', locals: { event: event, button: nil, index: idx } %>
+            <%= link_to event_register_path(id: event.id), { method: :get } do %>
+                <button id=<%= "event_nav_btn_#{idx}" %> type="button" class="btn btn-primary col-md-2 col-md-offset-5"><%= button_string %></button>
+            <% end %>
+          </div>
+          <div class="col-xs-12" style="height:10px;"></div>
+      <% end %>
+  <% else %>
+      <h3>There are no upcoming events</h3>
+  <% end %>
 </div>

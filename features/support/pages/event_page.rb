@@ -45,6 +45,6 @@ class EventPage < SitePrism::Page
   iframe :map_iframe, MapIframe, '#map'
   section :registration, RegistrationSection, 'div#rego'
   iframe :stripe_iframe, StripeIframe, '.stripe_checkout_app'
-  section :common_footer, CommonFooterSection, 'div#common_footer'
+  section :common_footer, CommonFooterSection, 'div#icon_footer'
 end
 

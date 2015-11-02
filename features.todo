@@ -1,8 +1,8 @@
 -create custom markers
 -event icon coloration with respect to time
 -info bubbles for markers
-investigate using svg images for all static assets
-    svg optimization in asset pipeline
+-investigate using svg images for all static assets - doesn't seem worth it
+    /svg optimization in asset pipeline
 move marker data into RoR code
 More details for main page
   complete main page
@@ -15,6 +15,14 @@ More details for main page
 
 fix events_controller for view method
 fix javascript errors
+fix hash_kennel model
+    just make it kennel
+    abbreviation isn't unique real world
+        move key to index instead of abbrev
+        user can belong to multiple kennels
+        event can belong to multiple kennels (ex. D.C. Road Whores and every major event)
+            hosting kennel?
+            tracking kennel?
 
 change whosecoming to whosecumming or add it or something
 
@@ -44,13 +52,23 @@ Get events from web
     web/google crawler
     web scraper
 
+Get events from google calendar
+    found by scraper
+    need retrieval method
+
 Enhance front-end
     Talk to Gabo
-    Reactjs?
+    Reactjs with redux?
 
 Authentication
-    Username and password
-    token-based
+    -Devise
+    -email and password
+    Create user management page
+    Create login partial
+    Create logged in partial
+    Modify existing pages/layout to include login/logout partial
+    tests
+    token-based?
 
 Authorization
     hash kennel ownership

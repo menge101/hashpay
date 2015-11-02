@@ -32,6 +32,15 @@ FactoryGirl.define do
     allow_rego? true
   end
 
+  factory :user, class: User do
+    first_name 'test'
+    last_name 'test'
+    hash_name 'testy'
+    email 'test@test.org'
+    password 'test1'
+    password_confirmation 'test1'
+  end
+
   trait :rego_allowed do
     allow_rego? true
   end

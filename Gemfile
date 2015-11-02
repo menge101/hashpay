@@ -15,6 +15,7 @@ gem 'money'
 gem 'gmaps4rails'
 gem 'biggs'
 gem 'stamp'
+gem 'devise'
 
 group :development do
  gem 'spring'

@@ -7,9 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="col-md-4 col-md-offset-4">
-      <%= image_tag('compressed_logo.svg', style: 'height:auto;width:100%;') %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= image_tag('compressed_logo.svg', style: 'height:auto;width:100%;') %>
+      </div>
     </div>
-    <%= yield %>
+    <div class="row">
+      <div class="panel-group">
+        <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+          <%= render partial: "shared/flash_messages", flash: flash %>
+          <div class="panel-heading"></div>
+          <div class="panel-body">
+            <%= yield %>
+          </div>
+          <div class="panel-footer"></div>
+          <div id="icon_footer" class="col-md-2 col-md-offset-10">
+            <% kennel = @hash_kennel if @hash_kennel %>
+            <% kennel = @event.hash_kennel if @event %>
+            <% if kennel %>
+              <% if kennel.facebook_url %>
+                <a id="facebook_link" href="<%= kennel.facebook_url %>">
+                  <%= image_tag('/images/facebookbutton.png', {alt: 'Facebook', class: 'img-responsive', id: 'facebook_button'}) %>
+                </a>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

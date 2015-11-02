@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   get 'events' => 'events#index', as: :index
   get 'hash/:abbrev' => 'hash_kennels#view', controller: 'hash_kennels'
-  get 'events/:id' => 'events#registration', as: :registration
-  post 'events/:id' => 'events#register', as: :register
+  get 'events/:id' => 'events#registration', as: :event_registration
+  post 'events/:id' => 'events#register', as: :event_register
   get 'events/:id/whosecoming' => 'events#view', as: :whosecoming
 
   root to: 'events#index'

@@ -1,5 +1,3 @@
-PAGE_MAP = { 'event' => EventPage, 'kennel' => KennelPage, 'whosecoming' => ViewPage }
-
 When /^I navigate to the (.*?) page$/ do |page|
   @page = PAGE_MAP[page.downcase].new
   if page == 'kennel'
@@ -11,5 +9,7 @@ When /^I navigate to the (.*?) page$/ do |page|
 end
 
 Then /^the '(.*?)' page is displayed$/ do |page|
-  expect(PAGE_MAP[page.downcase].new).to be_displayed
+  sleeping(0.5).seconds.between_tries.failing_after(10).tries do
+    expect(PAGE_MAP[page.downcase].new).to be_displayed
+  end
 end
