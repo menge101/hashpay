@@ -1,18 +1,15 @@
-When /^I navigate to the event page$/ do
-  @event = EventPage.new
-  @event.load
+PAGE_MAP = { 'event' => EventPage, 'kennel' => KennelPage, 'whosecoming' => ViewPage }
+
+When /^I navigate to the (.*?) page$/ do |page|
+  @page = PAGE_MAP[page.downcase].new
+  if page == 'kennel'
+    abrv = @kennel ? @kennel.abbreviation : 'P3H3'
+    @page.load(abbreviation: abrv)
+  else
+    @page.load
+  end
 end
 
-When /I navigate to the kennel page$/ do
-  @kennelPage = KennelPage.new
-  abrv = @kennel ? @kennel.abbreviation : 'P3H3'
-  @kennelPage.load(abbreviation: abrv)
-end
-
-Then /^the 'event' page is displayed$/ do
-  expect(EventPage.new).to be_displayed
-end
-
-Then /^the 'whosecoming' page is displayed$/ do
-  expect(ViewPage.new).to be_displayed
+Then /^the '(.*?)' page is displayed$/ do |page|
+  expect(PAGE_MAP[page.downcase].new).to be_displayed
 end
