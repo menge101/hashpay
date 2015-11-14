@@ -1,4 +1,3 @@
-<%= render partial: "shared/flash_messages", flash: flash %>
 <% button = { text: 'Event Registration', path: event_register_path(id: @event.id)} %>
 <div id="event"><%= render partial: 'events/event', locals: { event: @event, button: button } %></div>
 <div id="hashers">

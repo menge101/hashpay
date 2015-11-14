@@ -23,10 +23,10 @@ Feature:
     When I navigate to the login page
     And I login with email 'test@test.org' and password 'testtest1'
     Then the 'login' page is displayed
-    And a notice message is flashed reading 'You have to confirm your email address before continuing.'
+    And a warning message is flashed reading 'You have to confirm your email address before continuing.'
 
   Scenario: Login with invalid credentials
     When I navigate to the login page
     And I login with email 'test@test.org' and password 'testtest1'
     Then the 'login' page is displayed
-    And a notice message is flashed reading 'Invalid email or password.'
+    And a warning message is flashed reading 'Invalid email or password.'

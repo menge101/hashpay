@@ -1,8 +1,3 @@
-When /^I click the '(.+)' button on the event page$/ do |button|
-  button_map = { 'pay with stripe' => :stripe_button, 'add' => :add_button}
-  @page.registration.send(button_map[button]).click
-end
-
 When /^I click on the '(?:Event Registration|Registration List)' button$/ do
   @page.event_info.nav_button.click
 end
@@ -48,7 +43,7 @@ And /^I set the (first|last) kennel to '(.+)'$/ do |place, kennel|
 end
 
 And /^I add an attendee with name '(.+)' and kennel '(.+)'$/ do |name, kennel|
-  step "I click the 'add' button"
+  step "I click the 'add' button on the event page"
   step "I set the last name to '#{name}'"
   step "I set the last kennel to '#{kennel}'"
 end
