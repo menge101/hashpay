@@ -23,7 +23,7 @@ Serious map testing -
 Unit tests...
 
 fix events_controller for view method
-fix javascript errors
+fix javascript errors - goes away with switch to leaflet
 fix hash_kennel model
     just make it kennel
     abbreviation isn't unique real world
@@ -34,6 +34,21 @@ fix hash_kennel model
             tracking kennel?
 
 change whosecoming to whosecumming or add it or something
+
+Change to leaflet maps?
+  - location picker - http://labs.easyblog.it/maps/leaflet-locationpicker/
+  - more sensible api
+  - integration with heatmap js
+
+User accounts
+    mapping data uploads
+    learn more about gpx data
+    hashing heat maps
+        http://www.patrick-wied.at/static/heatmapjs/example-heatmap-googlemaps.html
+        heatmap.js
+        per kennel
+        per User
+        global
 
 centralized logging solution
     ELK?
@@ -94,11 +109,3 @@ hash bounties
     image upload
     map tagging
     S3 data storage for images?
-
-User accounts
-    mapping data uploads
-    learn more about gpx data
-    hashing heat maps
-        per kennel
-        per User
-        global
