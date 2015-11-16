@@ -11,8 +11,8 @@ class Event < ActiveRecord::Base
   validates :longitude, presence: true
   geocoded_by :location
   reverse_geocoded_by :latitude, :longitude do |obj, results|
-    if geo = results.first
-      puts geo
+    geo = results.first
+    if geo
       obj.address = geo.address
       obj.city = geo.city
       obj.state = geo.state
@@ -78,13 +78,17 @@ class Event < ActiveRecord::Base
     { url: "#{MARKER_PATH}/#{calculate_marker}", width: 30, height: 42, anchor: [6, 36] }
   end
 
+  def map_string
+    CGI.escape(location) + "&key=#{Rails.application.secrets.google_maps_public_api_key}"
+  end
+
   def calculate_marker
     count = Event.upcoming.count
     return 'onon_marker_0.png' if count <= 1
     last = Event.upcoming.order('date ASC').last.date
     first = Event.upcoming.order('date ASC').first.date
     total_range = seconds_to_days(last - first)
-    scaling_factor = calculate_scaling_factor(count, total_range)
+    scaling_factor = calculate_scaling_factor(total_range)
     offset_from_zero = seconds_to_days(self.date - first)
     marker_id = offset_from_zero * scaling_factor
     "onon_marker_#{marker_id.truncate}.png"
@@ -96,7 +100,7 @@ class Event < ActiveRecord::Base
 
   private
 
-  def calculate_scaling_factor(event_total, event_date_range)
+  def calculate_scaling_factor(event_date_range)
     MARKER_COUNT / event_date_range
   end
 

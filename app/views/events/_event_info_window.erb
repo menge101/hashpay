@@ -1,6 +1,6 @@
 <div class="gmap_info_window">
-  <div class="giw_title"><%= link_to(event.name, controller: 'hash_kennels', action: 'view', id: event.id) %></div>
-  <div class="giw_sub_title"><%= link_to(event.hash_kennel.full_name, controller: 'events', action: 'register', id: event.hash_kennel.id) %></div>
+  <div class="giw_title"><%= link_to(event.name, controller: 'events', action: 'register', id: event.id) %></div>
+  <div class="giw_sub_title"><%= link_to(event.hash_kennel.full_name, controller: 'hash_kennels', action: 'view', id: event.hash_kennel.id) %></div>
   <div class="giw_content">
     <div class="giw_sub_title">When:</div>
     <p><%= event.date.to_s(:user) %></p>

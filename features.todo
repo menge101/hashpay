@@ -13,6 +13,15 @@ More details for main page
       event table - http://apneadiving.github.io/
       event table needs events ordered by distance from user location
 
+Create event page
+  modify address normalization to expect address as long lat, probably
+
+Serious map testing -
+    JS Maps - http://blog.mojotech.com/selecting-google-maps-v3-markers-with-selenium-or-jquery/
+    EMbedded maps - http://danahartweg.com/test-embedded-google-maps-coordinates-with-rspec-and-capybara/
+
+Unit tests...
+
 fix events_controller for view method
 fix javascript errors
 fix hash_kennel model

@@ -1,8 +1,8 @@
 When /^I navigate to the (.*?) page$/ do |page|
   @page = PAGE_MAP[page.downcase].new
   if page == 'kennel'
-    abrv = @kennel ? @kennel.abbreviation : 'P3H3'
-    @page.load(abbreviation: abrv)
+    id = @kennel ? @kennel.id : '1'
+    @page.load(id: id)
   else
     @page.load
   end
