@@ -1,10 +1,10 @@
 <%= render partial: "shared/flash_messages", flash: flash %>
 <div>
   <h1>
-    <div class="col-md-2 col-md-offset-5"  id="abbreviated_hash_name"><%= @hash_kennel.abbreviation %></div>
+    <div class="col-md-2 col-md-offset-5"  id="abbreviated_hash_name"><%= @kennel.abbreviation %></div>
     <div class="col-md-8 col-md-offset-2 text-center">
       <small id="hash description">
-        <%= @hash_kennel.description %>
+        <%= @kennel.description %>
       </small>
     </div>
   </h1>
@@ -13,7 +13,7 @@
 <h3><div class="col-md-3">Upcoming Events:</div></h3>
 <div class="col-xs-12" style="height:25px;"></div>
 <div id="events" class="col-md-12">
-  <% events = @hash_kennel.events.upcoming %>
+  <% events = @kennel.events.upcoming %>
   <% if events.length > 0 %>
       <% events.each_with_index do |event, idx| %>
           <% button_string = event.rego_allowed? ? 'Event Registration' : 'Event Details' %>

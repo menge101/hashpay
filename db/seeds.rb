@@ -33,7 +33,7 @@ Event.create({name: 'P3H3 Run2',
               allow_rego?: true
              })
 
-kennel = HashKennel.create({full_name: 'Pittsburgh Hash House Harriers',
+kennel = Kennel.create({full_name: 'Pittsburgh Hash House Harriers',
                             abbreviation: 'PGH-H3',
                             description: 'The original drinking club with a running problem',
                             region: 'Pittsburgh, PA, USA',
@@ -53,7 +53,7 @@ Event.create({name: 'Run #1234',
 if ENV['RAILS_ENV'] == 'development'
   10.times do |i|
     puts "Building Kennel ##{i}"
-    kennel = FactoryGirl.create(:hash_kennel,
+    kennel = FactoryGirl.create(:kennel,
                                 {full_name: Faker::Company.name,
                                  description: 'The original drinking club with a running problem',
                                  region: "#{Faker::Address.city}, #{Faker::Address.state_abbr}, #{Faker::Address.zip}",

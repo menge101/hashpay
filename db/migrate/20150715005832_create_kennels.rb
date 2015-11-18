@@ -1,6 +1,6 @@
-class CreateHashKennels < ActiveRecord::Migration
+class CreateKennels < ActiveRecord::Migration
   def change
-    create_table :hash_kennels do |t|
+    create_table :kennels do |t|
       t.string :full_name
       t.string :abbreviation
       t.string :description
@@ -10,7 +10,5 @@ class CreateHashKennels < ActiveRecord::Migration
       t.datetime :founding
       t.timestamps
     end
-
-    add_index(:hash_kennels, :abbreviation, unique: true)
   end
 end

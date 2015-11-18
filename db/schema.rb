@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151031120830) do
   add_index "attendees", ["event_id"], name: "index_attendees_on_event_id", using: :btree
 
   create_table "events", force: true do |t|
-    t.integer  "hash_kennel_id"
+    t.integer  "kennel_id"
     t.string   "name"
     t.decimal  "cost"
     t.datetime "date"
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 20151031120830) do
   end
 
   add_index "events", ["date"], name: "index_events_on_date", using: :btree
-  add_index "events", ["hash_kennel_id", "date"], name: "index_events_on_hash_kennel_id_and_date", using: :btree
-  add_index "events", ["hash_kennel_id"], name: "index_events_on_hash_kennel_id", using: :btree
+  add_index "events", ["kennel_id", "date"], name: "index_events_on_kennel_id_and_date", using: :btree
+  add_index "events", ["kennel_id"], name: "index_events_on_kennel_id", using: :btree
 
-  create_table "hash_kennels", force: true do |t|
+  create_table "kennels", force: true do |t|
     t.string   "full_name"
     t.string   "abbreviation"
     t.string   "description"
@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 20151031120830) do
     t.datetime "updated_at"
   end
 
-  add_index "hash_kennels", ["abbreviation"], name: "index_hash_kennels_on_abbreviation", unique: true, using: :btree
-
   create_table "users", force: true do |t|
-    t.integer  "hash_kennel_id"
+    t.integer  "kennel_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "hash_name"
@@ -97,7 +95,7 @@ ActiveRecord::Schema.define(version: 20151031120830) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["hash_kennel_id"], name: "index_users_on_hash_kennel_id", using: :btree
+  add_index "users", ["kennel_id"], name: "index_users_on_kennel_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 

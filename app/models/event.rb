@@ -1,12 +1,12 @@
 class Event < ActiveRecord::Base
   has_many :attendees
-  belongs_to :hash_kennel
+  belongs_to :kennel
   validates :name, presence: true
   validates :cost, presence: true
   validates :date, presence: true
   validates :description, presence: true
   validates :location, presence: true
-  validates :hash_kennel, presence: true
+  validates :kennel, presence: true
   validates :latitude, presence: true
   validates :longitude, presence: true
   geocoded_by :location
@@ -71,7 +71,7 @@ class Event < ActiveRecord::Base
   end
 
   def rego_allowed?
-    self.allow_rego? && self.hash_kennel.allow_rego?
+    self.allow_rego? && self.kennel.allow_rego?
   end
 
   def set_marker

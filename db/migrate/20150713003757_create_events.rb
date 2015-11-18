@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
-      t.belongs_to :hash_kennel, index: true
+      t.belongs_to :kennel, index: true
       t.string :name
       t.decimal :cost
       t.datetime :date
@@ -23,7 +23,7 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :events, [:hash_kennel_id, :date]
+    add_index :events, [:kennel_id, :date]
     add_index :events, :date
   end
 end

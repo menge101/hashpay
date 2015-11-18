@@ -20,10 +20,10 @@ FactoryGirl.define do
     description 'A test event'
     location '2020 Smallman Street, Pittsburgh, PA'
     allow_rego? true
-    association :hash_kennel
+    association :kennel
   end
 
-  factory :hash_kennel, class: HashKennel do
+  factory :kennel, class: Kennel do
     full_name 'Pittsburgh Prophylactic Problems Hash House Harriers'
     abbreviation
     description 'A running club with a children problem'

@@ -23,8 +23,8 @@
           </div>
           <div class="panel-footer"></div>
           <div id="icon_footer" class="col-md-2 col-md-offset-10">
-            <% kennel = @hash_kennel if @hash_kennel %>
-            <% kennel = @event.hash_kennel if @event %>
+            <% kennel = @kennel if @kennel %>
+            <% kennel = @event.kennel if @event %>
             <% if kennel %>
               <% if kennel.facebook_url %>
                 <a id="facebook_link" href="<%= kennel.facebook_url %>">

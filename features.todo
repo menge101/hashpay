@@ -3,6 +3,17 @@
 -info bubbles for markers
 -investigate using svg images for all static assets - doesn't seem worth it
     /svg optimization in asset pipeline
+
+fix hash_kennel model
+    just make it kennel
+    abbreviation isn't unique real world
+        move key to index instead of abbrev
+        user can belong to multiple kennels
+        event can belong to multiple kennels (ex. D.C. Road Whores and every major event)
+            hosting kennel?
+            tracking kennel?
+
+
 move marker data into RoR code
 More details for main page
   complete main page
@@ -24,14 +35,6 @@ Unit tests...
 
 fix events_controller for view method
 fix javascript errors - goes away with switch to leaflet
-fix hash_kennel model
-    just make it kennel
-    abbreviation isn't unique real world
-        move key to index instead of abbrev
-        user can belong to multiple kennels
-        event can belong to multiple kennels (ex. D.C. Road Whores and every major event)
-            hosting kennel?
-            tracking kennel?
 
 change whosecoming to whosecumming or add it or something
 
