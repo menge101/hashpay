@@ -25,4 +25,12 @@ FactoryGirl.define do
   trait :event_rego_forbidden do
     allow_rego? false
   end
+
+  trait :future do
+    date Time.zone.now + 5.days
+  end
+
+  trait :past do
+    date Time.zone.now - 5.days
+  end
 end

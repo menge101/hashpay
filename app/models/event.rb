@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   has_many :attendees
   belongs_to :kennel
+  has_many :gps_datas
+  has_many :users, through: :gps_datas
   validates :name, presence: true
   validates :cost, presence: true
   validates :date, presence: true
@@ -30,6 +32,10 @@ class Event < ActiveRecord::Base
   MARKER_PATH = 'images/markers'.freeze
 
   scope :upcoming, -> { where('date > ?', DateTime.now).order('date ASC, created_at ASC') }
+
+  def allow_upload?
+    Time.zone.now > date
+  end
 
   def create_identity_sets(params)
     name_array = params[:names]
@@ -71,7 +77,7 @@ class Event < ActiveRecord::Base
   end
 
   def rego_allowed?
-    self.allow_rego? && self.kennel.allow_rego?
+    self.allow_rego? && self.kennel.allow_rego? && (self.date > Time.zone.now)
   end
 
   def set_marker

@@ -33,18 +33,25 @@ class MapIframe < SitePrism::Page
 
 end
 
+class DataUploadSection < SitePrism::Section
+  element :browse_button, '#browse'
+  element :submit_button, '#submit'
+end
+
 class CommonFooterSection < SitePrism::Section
   element :facebook_link, 'a#facebook_link'
   element :facebook_button, 'img#facebook_button'
 end
 
 class EventPage < SitePrism::Page
-  set_url '/events/1'
+  set_url '/events{/id}'
   element :flash_messages, 'div#flash_messages'
   section :event_info, EventInfoSection, 'div#event'
   iframe :map_iframe, MapIframe, '#map'
   section :registration, RegistrationSection, 'div#rego'
   iframe :stripe_iframe, StripeIframe, '.stripe_checkout_app'
+  section :data_upload, DataUploadSection, '#gps_upload'
   section :common_footer, CommonFooterSection, 'div#icon_footer'
+  section :flash, FlashMessageSection, 'div#flash_messages'
 end
 

@@ -20,7 +20,8 @@ Feature:
     And I set name to 'Weasel'
     And I set kennel to 'pgh-h3'
     When I click the 'pay with stripe' button on the event page
-    And I enter 'a random email' in the email field
+    Then the stripe payment overlay is displayed
+    When I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
@@ -40,7 +41,8 @@ Feature:
     When I click the 'add' button on the event page
     And I click the 'add' button on the event page
     And I click the 'pay with stripe' button on the event page
-    And I enter 'a random email' in the email field
+    Then the stripe payment overlay is displayed
+    When I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
@@ -55,7 +57,8 @@ Feature:
     And I set kennel to 'pgh-h3'
     And I add an attendee with name 'PWE' and kennel 'Tokyo-hhh'
     When I click the 'pay with stripe' button on the event page
-    And the stripe payment overlay is displayed
+    Then the stripe payment overlay is displayed
+    When the stripe payment overlay is displayed
     And I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future
@@ -76,7 +79,8 @@ Feature:
     And I add an attendee with name 'Cock Secret' and kennel 'SL-UT HHH'
     And I add an attendee with name 'PWE' and kennel 'Tokyo-hhh'
     When I click the 'pay with stripe' button on the event page
-    And I enter 'a random email' in the email field
+    Then the stripe payment overlay is displayed
+    When I enter 'a random email' in the email field
     And I enter a valid visa card
     And I enter a expiration date in the future
     And I enter a cvc code of '123'
@@ -94,7 +98,8 @@ Feature:
     And I set name to 'Weasel'
     And I set kennel to 'pgh-h3'
     When I click the 'pay with stripe' button on the event page
-    And I enter 'a random email' in the email field
+    Then the stripe payment overlay is displayed
+    When I enter 'a random email' in the email field
     And I enter an invalid visa card
     And I enter a expiration date in the future
     And I enter a cvc code of '123'

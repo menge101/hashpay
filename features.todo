@@ -4,15 +4,24 @@
 -investigate using svg images for all static assets - doesn't seem worth it
     /svg optimization in asset pipeline
 
-fix hash_kennel model
-    just make it kennel
-    abbreviation isn't unique real world
-        move key to index instead of abbrev
-        user can belong to multiple kennels
-        event can belong to multiple kennels (ex. D.C. Road Whores and every major event)
-            hosting kennel?
-            tracking kennel?
+-fix hash_kennel model
+    -just make it kennel
+    -abbreviation isn't unique real world
+        -move key to index instead of abbrev
 
+User accounts
+    -mapping data uploads
+    -learn more about gpx data
+    hashing heat maps
+        http://www.patrick-wied.at/static/heatmapjs/example-heatmap-googlemaps.html
+        heatmap.js
+        per kennel
+        per User
+        global
+
+Geolocation enhancements
+    -remove geolocation code from model creation
+    -create remote call
 
 move marker data into RoR code
 More details for main page
@@ -43,15 +52,11 @@ Change to leaflet maps?
   - more sensible api
   - integration with heatmap js
 
-User accounts
-    mapping data uploads
-    learn more about gpx data
-    hashing heat maps
-        http://www.patrick-wied.at/static/heatmapjs/example-heatmap-googlemaps.html
-        heatmap.js
-        per kennel
-        per User
-        global
+
+user can belong to multiple kennels
+event can belong to multiple kennels (ex. D.C. Road Whores and every major event)
+    hosting kennel?
+    tracking kennel?
 
 centralized logging solution
     ELK?

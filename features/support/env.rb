@@ -14,7 +14,11 @@ require 'database_cleaner'
 require 'database_cleaner/cucumber'
 require 'factory_girl'
 require 'fakeweb'
+require 'timing'
+require_relative '../../spec/support/fakeweb'
 include Anticipate
+include Timing
+include Warden::Test::Helpers
 
 World(FactoryGirl::Syntax::Methods)
 ENV['RAILS_ENV'] = 'test'
@@ -72,6 +76,8 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 #pass environment variables to control which browser is used for testing. Default is HEADLESS/POLTERGEIST
 #usage: firefox=true bundle exec cucumber features/test.feature
+
+Capybara.ignore_hidden_elements = false
 
 if ENV['phantomjs']
   Capybara.default_driver = :poltergeist

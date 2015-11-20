@@ -25,5 +25,9 @@ Given /^an event with rego (enabled|disabled)$/ do |status|
     @event = FactoryGirl.create(:event, action)
     @kennel = @event.kennel
   end
+end
 
+Given /^an event in the (past|future)$/ do |type|
+  trait = (type == 'past' ? :past : :future)
+  @event = FactoryGirl.create(:event, trait)
 end

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 rake db:drop
 rake db:create

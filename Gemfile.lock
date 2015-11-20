@@ -257,6 +257,7 @@ DEPENDENCIES
   gmaps4rails
   jquery-rails
   money
+  nokogiri
   pg
   poltergeist
   puma

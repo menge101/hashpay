@@ -1,7 +1,8 @@
 When /^I enter '(.+)' in the email field$/ do |email|
-  sleep(1)
-  within_frame 'stripe_checkout_app' do
-    page.driver.browser.find_element(:id, 'email').send_keys(email == 'a random email' ? Faker::Internet.email : email)
+  ui_response_delay do
+    within_frame 'stripe_checkout_app' do
+      page.driver.browser.find_element(:id, 'email').send_keys(email == 'a random email' ? Faker::Internet.email : email)
+    end
   end
 end
 

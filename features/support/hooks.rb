@@ -1,4 +1,5 @@
 Before do
+  register_geocoder
   DatabaseCleaner.start
 end
 

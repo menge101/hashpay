@@ -4,7 +4,12 @@ FactoryGirl.define do
     last_name 'test'
     hash_name 'testy'
     email 'test@test.org'
-    password 'test1'
-    password_confirmation 'test1'
+    password 'testtest1'
+    password_confirmation 'testtest1'
   end
+
+  trait :confirmed do
+    confirmed_at (Time.zone.now - 1.day)
+  end
+
 end

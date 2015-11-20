@@ -31,15 +31,16 @@ Then /^the event navigational button text reads '(.+)'$/ do |text|
 end
 
 Then /^the stripe payment overlay is (not )?displayed$/ do |negation|
-  expect(@page.has_stripe_iframe?).to (negation.blank? ? be_truthy : be_falsey)
+  action = negation.blank? ? :to : :to_not
+  stripe_delay { expect(@page.find('.stripe_checkout_app')).send(action, be_visible) }
 end
 
 And /^I set the (first|last) name to '(.+)'$/ do |place, name|
-  @page.registration.hash_names.send(place.to_sym).set(name)
+  @page.registration.hash_names.select { |x| x.visible? }.send(place.to_sym).set(name)
 end
 
 And /^I set the (first|last) kennel to '(.+)'$/ do |place, kennel|
-  @page.registration.kennels.send(place.to_sym).set(kennel)
+  @page.registration.kennels.select { |x| x.visible? }.send(place.to_sym).set(kennel)
 end
 
 And /^I add an attendee with name '(.+)' and kennel '(.+)'$/ do |name, kennel|

@@ -16,6 +16,7 @@ gem 'gmaps4rails'
 gem 'biggs'
 gem 'stamp'
 gem 'devise'
+gem 'nokogiri'
 
 group :development do
  gem 'spring'

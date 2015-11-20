@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'events/:id' => 'events#registration', as: :event_registration
   post 'events/:id' => 'events#register', as: :event_register
   get 'events/:id/whosecoming' => 'events#view', as: :whosecoming
+  post 'gps_data/:id' => 'gps_data#create', as: :gps_create
 
   root to: 'events#index'
 

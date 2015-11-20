@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031120830) do
+ActiveRecord::Schema.define(version: 20151120132534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,21 @@ ActiveRecord::Schema.define(version: 20151031120830) do
   add_index "events", ["date"], name: "index_events_on_date", using: :btree
   add_index "events", ["kennel_id", "date"], name: "index_events_on_kennel_id_and_date", using: :btree
   add_index "events", ["kennel_id"], name: "index_events_on_kennel_id", using: :btree
+
+  create_table "gps_data", force: true do |t|
+    t.integer  "event_id",                  null: false
+    t.integer  "user_id",                   null: false
+    t.string   "data"
+    t.string   "file_location",             null: false
+    t.integer  "status",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gps_data", ["event_id", "user_id"], name: "index_gps_data_on_event_id_and_user_id", using: :btree
+  add_index "gps_data", ["event_id"], name: "index_gps_data_on_event_id", using: :btree
+  add_index "gps_data", ["status"], name: "index_gps_data_on_status", using: :btree
+  add_index "gps_data", ["user_id"], name: "index_gps_data_on_user_id", using: :btree
 
   create_table "kennels", force: true do |t|
     t.string   "full_name"

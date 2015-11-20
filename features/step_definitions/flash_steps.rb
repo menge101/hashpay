@@ -5,5 +5,5 @@ Then /^an? (alert|notice|error|warning) message is flashed reading '(.*?)'$/ do 
   sleeping(0.5).seconds.between_tries.failing_after(20).tries do
     expect(current.flash_messages.text).to eq(msg)
   end
-  expect(current.flash_messages[:class]).to include(class_mapping[type])
+  expect(EventPage.new.flash.messages.first[:class]).to include(class_mapping[type])
 end
