@@ -1,5 +1,5 @@
 Given /^a kennel with rego (enabled|disabled)$/ do |status|
-  action = status == 'enabled' ? :rego_allowed : :rego_forbidden
+  action = status == 'enabled' ? :kennel_allow_rego : :kennel_disable_rego
   @kennel = FactoryGirl.create(:kennel, action)
 end
 

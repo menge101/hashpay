@@ -27,3 +27,6 @@
 #ignore swap files
 *.swp
 *.swo
+
+#ignore contents of upload directory
+uploads/*

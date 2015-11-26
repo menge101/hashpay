@@ -18,7 +18,7 @@ Given /^an event with a date (.+) days in the past$/ do |day_count|
 end
 
 Given /^an event with rego (enabled|disabled)$/ do |status|
-  action = (status == 'enabled') ? :rego_allowed : :rego_forbidden
+  action = (status == 'enabled') ? :event_rego_allowed : :event_rego_forbidden
   if @kennel
     @event = FactoryGirl.create(:event, action, { kennel: @kennel } )
   else
